@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: library
+Version: 0.0.1
+Summary: pybind11 extension
+Author: user
+Author-email: user@user.ru
+Requires: pybind11

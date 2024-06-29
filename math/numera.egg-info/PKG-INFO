@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: numera
+Version: 0.0.1
+Author: TheCakeMan1
+Author-email: lilo.lilo565@gmail.com
+Requires: pybind11

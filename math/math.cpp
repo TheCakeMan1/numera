@@ -4,6 +4,7 @@
 #include "parser.h"
 #include <pybind11/complex.h>
 #include <cmath>
+#include <stack>
 
 namespace py = pybind11;
 double PI = 3.14159265358979323846264338327950288419716939937510;
@@ -16,6 +17,15 @@ double PI = 3.14159265358979323846264338327950288419716939937510;
     }   
     return py::none();
 }*/
+
+
+std::vector<double> vec_swap(const std::vector<double>& y) {
+    std::vector<double> temp;
+    for (auto i : y) {
+        temp.push_back(i);
+    }
+    return temp;
+}
 
 //прямое преобразование Фурье
 std::vector<std::complex<double>> fft(const std::vector<double>& y) {
@@ -48,7 +58,7 @@ std::vector<double> ifft(const std::vector<std::complex<double>>& Y) {
         }
         y[i] = (real / N) + (imag / N);
     }
-    return y;
+    return vec_swap(y);
 }
 
 //прямое преобразование Хартли

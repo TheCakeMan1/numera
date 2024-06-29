@@ -1,7 +1,0 @@
-math.cpp
-parser.cpp
-setup.py
-numera.egg-info/PKG-INFO
-numera.egg-info/SOURCES.txt
-numera.egg-info/dependency_links.txt
-numera.egg-info/top_level.txt

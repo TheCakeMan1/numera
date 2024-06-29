@@ -1,3 +1,0 @@
-C:/Users/Алексей/source/repos/math/math/build/CMakeFiles/example.dir
-C:/Users/Алексей/source/repos/math/math/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Алексей/source/repos/math/math/build/CMakeFiles/ZERO_CHECK.dir

@@ -19,3 +19,7 @@ std::vector<double> vec_swap(const std::vector<double>& y) {
     }
     return temp;
 }
+
+array zeros(int n){
+    return array(std::vector<double>(n, 0.0));
+}

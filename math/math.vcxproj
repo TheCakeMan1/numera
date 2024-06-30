@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="avx_suppor.cpp" />
+    <ClCompile Include="filter.cpp" />
+    <ClCompile Include="func.cpp" />
     <ClCompile Include="harmonic.cpp" />
     <ClCompile Include="interpol.cpp" />
     <ClCompile Include="math.cpp" />
@@ -154,6 +157,9 @@
     <None Include="setup.py" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="avx_support.h" />
+    <ClInclude Include="filter.h" />
+    <ClInclude Include="func.h" />
     <ClInclude Include="harmonic.h" />
     <ClInclude Include="interpol.h" />
     <ClInclude Include="parser.h" />

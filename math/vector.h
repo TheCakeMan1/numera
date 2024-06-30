@@ -16,6 +16,8 @@ public:
 
     array(std::vector<double> vec) : vec(std::move(vec)) {}
 
+    array(int n) : vec(n) {}
+
     ~array() = default;
 
     int size() const {
@@ -45,6 +47,14 @@ public:
         }
         for (int i = 0; i < vac.vec.size(); i++) {
             vec_new.append(vac.vec[i]);
+        }
+        return vec_new;
+    }
+
+    array operator* (double& val) const {
+        array vec_new;
+        for (int i = 0; i < this->vec.size(); i++) {
+            vec_new[i] = vec_new[i] * val;
         }
         return vec_new;
     }

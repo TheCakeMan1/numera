@@ -19,6 +19,9 @@
     <Filter Include="Исходные файлы\object">
       <UniqueIdentifier>{0d4560f0-38ff-491d-8e19-0b6f68cb6650}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\signal">
+      <UniqueIdentifier>{f3f72f5c-9123-4d3a-8d17-13d63ed0cacb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="math.cpp">
@@ -42,6 +45,15 @@
     <ClCompile Include="val.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="func.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="avx_suppor.cpp">
+      <Filter>Исходные файлы\object</Filter>
+    </ClCompile>
+    <ClCompile Include="filter.cpp">
+      <Filter>Исходные файлы\signal</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
@@ -61,6 +73,15 @@
     </ClInclude>
     <ClInclude Include="vector.h">
       <Filter>Исходные файлы\object</Filter>
+    </ClInclude>
+    <ClInclude Include="func.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="avx_support.h">
+      <Filter>Исходные файлы\object</Filter>
+    </ClInclude>
+    <ClInclude Include="filter.h">
+      <Filter>Исходные файлы\signal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

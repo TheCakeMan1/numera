@@ -31,10 +31,29 @@ PYBIND11_MODULE(numera, m) {
     submodule.def("ifft", &ifft, pybind11::arg("Y"), "");
     submodule.def("hart", &hart, pybind11::arg("y"), "");
     submodule.def("ihart", &ihart, pybind11::arg("H"), "");
+    submodule.def("convolution", &convolution, pybind11::arg("y_1"), pybind11::arg("y_2"), "");
+
+
     py::class_<array>(m, "array")
         .def(py::init<>())
         .def(py::init<std::vector<double>>())
-        .def("size", &array::size)
+        .def("size", &array::size, R"pbdoc(
+This function will allow you to find out the dimension of the vector.
+            
+Parameters
+==========
+void
+            
+Returns
+=======
+Returns an integer indicating the length of the array.
+
+Examples
+========
+>>> import numera as nu
+>>> vector = array([1, 2, 3])
+>>> print(vector)
+        )pbdoc")
         .def("append", &array::append)
         .def("front", &array::front)
         .def("back", &array::back)

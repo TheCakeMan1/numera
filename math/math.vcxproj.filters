@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\matan">
+      <UniqueIdentifier>{30fe0dba-246d-4e0e-8868-027007fab3dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\object">
+      <UniqueIdentifier>{0d4560f0-38ff-491d-8e19-0b6f68cb6650}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="math.cpp">
@@ -22,6 +28,18 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="parser.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="harmonic.cpp">
+      <Filter>Исходные файлы\matan</Filter>
+    </ClCompile>
+    <ClCompile Include="val.h">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>Исходные файлы\object</Filter>
+    </ClCompile>
+    <ClCompile Include="val.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,6 +55,12 @@
     </ClInclude>
     <ClInclude Include="parser.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="harmonic.h">
+      <Filter>Исходные файлы\matan</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Исходные файлы\object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

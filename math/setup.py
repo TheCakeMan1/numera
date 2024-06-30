@@ -4,7 +4,7 @@ from distutils.core import setup, Extension
 ext_modules = [
     Extension(
         'numera',
-        ['math.cpp', 'parser.cpp'],
+        ['math.cpp', 'parser.cpp', 'harmonic.cpp', 'vector.cpp', 'val.cpp'],
         include_dirs=['D:\pybind11-master\install\include'],
         language='c++',
         extra_compile_args=['-std=c++11'],

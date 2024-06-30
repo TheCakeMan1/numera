@@ -139,9 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="harmonic.cpp" />
     <ClCompile Include="interpol.cpp" />
     <ClCompile Include="math.cpp" />
     <ClCompile Include="parser.cpp" />
+    <ClCompile Include="val.cpp" />
+    <ClCompile Include="val.h" />
+    <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
@@ -150,8 +154,10 @@
     <None Include="setup.py" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="harmonic.h" />
     <ClInclude Include="interpol.h" />
     <ClInclude Include="parser.h" />
+    <ClInclude Include="vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

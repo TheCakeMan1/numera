@@ -1,6 +1,9 @@
+harmonic.cpp
 math.cpp
 parser.cpp
 setup.py
+val.cpp
+vector.cpp
 numera.egg-info/PKG-INFO
 numera.egg-info/SOURCES.txt
 numera.egg-info/dependency_links.txt

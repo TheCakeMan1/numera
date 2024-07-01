@@ -8,9 +8,10 @@
 #include "vector.h"
 
 std::vector<std::complex<double>> fft(const std::vector<double>& y);
-std::vector<double> ifft(const std::vector<std::complex<double>>& Y);
+std::vector<double> ift(const std::vector<std::complex<double>>& Y);
 std::vector<double> hart(const std::vector<double>& y);
 std::vector<double> ihart(const std::vector<double>& H);
 std::vector<double> convolution(std::vector<double>& y, std::vector<double>& w);
+void solve(std::complex<double>* a, int n, std::complex<double> wn);
 
 #endif // HARMONIC_H

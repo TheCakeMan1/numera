@@ -15,8 +15,7 @@
         Y[i] = std::complex<double>(real, imag);
     }
     return Y;
-}*/
-std::vector<std::complex<double>> fft(const std::vector<double>& y) {
+}std::vector<std::complex<double>> fft(const std::vector<double>& y) {
     size_t N = y.size();
     std::vector<std::complex<double>> Y(N);
 
@@ -51,9 +50,205 @@ std::vector<std::complex<double>> fft(const std::vector<double>& y) {
     }
     return Y;
 }
+std::vector<std::complex<double>> fft(const std::vector<double>& y) {
+    int n = static_cast<int>(y.size());
+    std::vector<std::complex<double>> p(n);
+
+    if (n == 1) {
+        p[0] = y[0];
+        return p;
+    }
+
+    std::vector<double> a(n / 2), b(n / 2);
+    for (int i = 0; i < n / 2; i++) {
+        a[i] = y[2 * i];
+        b[i] = y[2 * i + 1];
+    }
+
+    std::vector<std::complex<double>> A = fft(a);
+    std::vector<std::complex<double>> B = fft(b);
+
+    std::complex<double> w = 1;
+    std::complex<double> wn = std::exp(-2.0 * std::complex<double>(0, 1) * PI / static_cast<double>(n));
+
+    for (int i = 0; i < n / 2; i++) {
+        p[i] = A[i] + w * B[i];
+        p[i + n / 2] = A[i] - w * B[i];
+        w *= wn;
+    }
+
+    return p;
+}
+*/
+
+
+std::vector<std::complex<double>> ft(const std::vector<double>& y) {
+    size_t N = y.size();
+    std::vector<std::complex<double>> Y(N);
+
+    __m256d temp = _mm256_set1_pd(2.0 * PI / N);
+
+    for (int i = 0; i < N; i++) {
+        __m256d real_sum = _mm256_setzero_pd();
+        __m256d imag_sum = _mm256_setzero_pd();
+        __m256d i_v = _mm256_set1_pd(static_cast<double>(i));
+
+        for (int j = 0; j < N; j += 4) {
+            __m256d j_v = _mm256_set_pd(static_cast<double>(j + 3), static_cast<double>(j + 2), static_cast<double>(j + 1), static_cast<double>(j));
+            __m256d y_v = _mm256_set_pd(y[j + 3], y[j + 2], y[j + 1], y[j]);
+
+            __m256d cos_v = _mm256_cos_pd(_mm256_mul_pd(temp, _mm256_mul_pd(i_v, j_v)));
+            __m256d sin_v = _mm256_sin_pd(_mm256_mul_pd(temp, _mm256_mul_pd(i_v, j_v)));
+
+            real_sum = _mm256_add_pd(real_sum, _mm256_mul_pd(y_v, cos_v));
+            imag_sum = _mm256_add_pd(imag_sum, _mm256_mul_pd(y_v, sin_v));
+        }
+
+        alignas(32) double real[4], imag[4];
+        _mm256_store_pd(real, real_sum);
+        _mm256_store_pd(imag, imag_sum);
+
+        double real_total = real[0] + real[1] + real[2] + real[3];
+        double imag_total = imag[0] + imag[1] + imag[2] + imag[3];
+
+        Y[i] = std::complex<double>(real_total, imag_total);
+    }
+    return Y;
+}
+
+void solve(std::complex<double>* a, int n, std::complex<double> wn) {
+    if (n > 1) {
+        int k = (n >> 1);
+        solve(a, k, wn * wn);
+        solve(a + k, k, wn * wn);
+        std::complex<double> w = 1;
+        for (int i = 0; i < k; i++) {
+            // тут нужно быть чуть аккуратней с перезаписыванием,
+            // потому что мы читаем и пишем из одного и того же массива
+            std::complex<double> t = w * a[i + k];
+            a[i + k] = a[i] - t;
+            a[i] = a[i] + t;
+            w *= wn;
+        }
+    }
+}
+
+std::vector<std::complex<double>> fft(const std::vector<double>& y) {
+    int n = y.size();
+    std::vector<std::complex<double>> a_copy(y.begin(), y.end()); // Создание копии входного массива
+
+    const int logn = log2(n);
+
+    for (int i = 0; i < n; i++) {
+        int k = 0;
+        for (int l = 0; l < logn; l++)
+            k |= ((i >> l & 1) << (logn - l - 1));
+        if (i < k)
+            std::swap(a_copy[i], a_copy[k]);
+    }
+
+    std::complex<double> wn = std::polar(1., 1 * 2 * 3.14 / n);
+    solve(&a_copy[0], n, wn); // Передача указателя на данные вектора
+
+    return a_copy;
+}
+/*
+std::vector<std::complex<double>> fft(const std::vector<double>& y) {
+    int n = static_cast<int>(y.size());
+    std::vector<std::complex<double>> p(n);
+
+    if (n == 1) {
+        p[0] = y[0];
+        return p;
+    }
+
+    std::vector<double> a(n / 2), b(n / 2);
+    for (int i = 0; i < n / 2; i++) {
+        a[i] = y[2 * i];
+        b[i] = y[2 * i + 1];
+    }
+
+    std::vector<std::complex<double>> A = fft(a);
+    std::vector<std::complex<double>> B = fft(b);
+
+    std::complex<double> w = 1;
+    std::complex<double> wn = exp(-2.0 * std::complex<double>(0, 1) * PI / static_cast<double>(n));
+
+    for (int i = 0; i < n / 2; i++) {
+        p[i] = A[i] + w * B[i];
+        p[i + n / 2] = A[i] - w * B[i];
+        w *= wn;
+    }
+
+    return p;
+}
+
+std::vector<std::complex<double>> fft(const std::vector<double>& y) {
+    int n = static_cast<int>(y.size());
+    std::vector<std::complex<double>> p(n);
+
+    if (n == 1) {
+        p[0] = y[0];
+        return p;
+    }
+
+    std::vector<double> a(n / 2), b(n / 2);
+    for (int i = 0; i < n / 2; i++) {
+        a[i] = y[2 * i];
+        b[i] = y[2 * i + 1];
+    }
+
+    std::vector<std::complex<double>> A = fft(a);
+    std::vector<std::complex<double>> B = fft(b);
+
+    std::complex<double> wn = std::exp(-2.0 * std::complex<double>(0, 1) * PI / static_cast<double>(n));
+    double wn_real = wn.real();
+    double wn_imag = wn.imag();
+
+    __m256d w_real = _mm256_set1_pd(1.0);
+    __m256d w_imag = _mm256_set1_pd(0.0);
+    __m256d wn_real_v = _mm256_set1_pd(wn_real);
+    __m256d wn_imag_v = _mm256_set1_pd(0.0);
+
+    for (int i = 0; i < n / 2; i += 4) {
+        __m256d A_real = _mm256_set_pd(A[i + 3].real(), A[i + 2].real(), A[i + 1].real(), A[i].real());
+        __m256d A_imag = _mm256_set_pd(A[i + 3].imag(), A[i + 2].imag(), A[i + 1].imag(), A[i].imag());
+        __m256d B_real = _mm256_set_pd(B[i + 3].real(), B[i + 2].real(), B[i + 1].real(), B[i].real());
+        __m256d B_imag = _mm256_set_pd(B[i + 3].imag(), B[i + 2].imag(), B[i + 1].imag(), B[i].imag());
+
+        __m256d twiddle_real = _mm256_sub_pd(_mm256_mul_pd(w_real, B_real), _mm256_mul_pd(w_imag, B_imag));
+        __m256d twiddle_imag = _mm256_add_pd(_mm256_mul_pd(w_real, B_imag), _mm256_mul_pd(w_imag, B_real));
+    
+        __m256d p_real = _mm256_add_pd(A_real, twiddle_real);
+        __m256d p_imag = _mm256_add_pd(A_imag, twiddle_imag);
+        __m256d p_half_real = _mm256_sub_pd(A_real, twiddle_real);
+        __m256d p_half_imag = _mm256_sub_pd(A_imag, twiddle_imag);
+
+        double real[4], imag[4];
+        _mm256_storeu_pd(real, p_real);
+        _mm256_storeu_pd(imag, p_imag);
+
+        p[i] = std::complex<double>(real[0], imag[0]);
+        p[i + 1] = std::complex<double>(real[1], imag[1]);
+        p[i + 2] = std::complex<double>(real[2], imag[2]);
+        p[i + 3] = std::complex<double>(real[3], imag[3]);
+
+        _mm256_storeu_pd(real, p_half_real);
+        _mm256_storeu_pd(imag, p_half_imag);
+
+        p[i + n / 2] = std::complex<double>(real[0], imag[0]);
+        p[(i + 1) + n / 2] = std::complex<double>(real[1], imag[1]);
+        p[(i + 2) + n / 2] = std::complex<double>(real[2], imag[2]);
+        p[(i + 3) + n / 2] = std::complex<double>(real[3], imag[3]);
+
+        w_imag = _mm256_add_pd(_mm256_mul_pd(w_real, wn_imag_v), _mm256_mul_pd(w_imag, wn_real_v));
+    }
+
+    return p;
+}*/
 
 //обратное преобразование Фурье
-std::vector<double> ifft(const std::vector<std::complex<double>>& Y) {
+std::vector<double> ift(const std::vector<std::complex<double>>& Y) {
     size_t N = Y.size();
     std::vector<double> y(N);
 

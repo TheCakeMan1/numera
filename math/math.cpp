@@ -7,8 +7,12 @@
 #include <stack>
 #include "harmonic.h"
 #include "vector.h"
+#include "ni.h"
+#include "nf.h"
+#include "nui.h"
 
 namespace py = pybind11;
+
 
 /*py::object find_index(const std::vector<py::object>& items, const py::object& value) {
     for (int i = 0; i < items.size(); i++) {
@@ -28,7 +32,7 @@ PYBIND11_MODULE(numera, m) {
     // Define submodules
     py::module submodule = m.def_submodule("harmonic", "");
     submodule.def("fft", &fft, pybind11::arg("y"), "");
-    submodule.def("ifft", &ifft, pybind11::arg("Y"), "");
+    submodule.def("ift", &ift, pybind11::arg("Y"), "");
     submodule.def("hart", &hart, pybind11::arg("y"), "");
     submodule.def("ihart", &ihart, pybind11::arg("H"), "");
     submodule.def("convolution", &convolution, pybind11::arg("y_1"), pybind11::arg("y_2"), "");
@@ -77,6 +81,55 @@ Examples
                         oss << a;
                         return oss.str();
                     });
+    py::class_<ni>(m, "ni")
+        .def(py::init<>())
+        .def(py::init<int>())
+        .def(py::init<float>())
+        .def(py::init<double>())
+        .def(py::init<const ni&>())
+        .def("toInt", &ni::toInt)
+        .def("toFloat", &ni::toFloat)
+        .def("__add__", static_cast<ni(ni::*)(const ni&) const>(&ni::operator+), py::is_operator())
+        .def("__add__", static_cast<ni(ni::*)(int) const>(&ni::operator+), py::is_operator())
+        .def("__add__", static_cast<ni(ni::*)(double) const>(&ni::operator+), py::is_operator())
+        //.def("__add__", static_cast<ni(ni::*)(const nf&) const>(&ni::operator+), py::is_operator())
+        .def("__sub__", &ni::operator-, py::is_operator())
+        .def("__mul__", &ni::operator*, py::is_operator())
+        .def("__str__", &ni::print)
+        .def("__repr__", &ni::print);
+
+    py::class_<nui>(m, "nui")
+        .def(py::init<>())
+        .def(py::init<int>())
+        .def(py::init<float>())
+        .def(py::init<double>())
+        .def(py::init<const nui&>())
+        .def("toInt", &nui::toInt)
+        .def("toFloat", &nui::toFloat)
+        .def("__add__", static_cast<nui(nui::*)(const nui&) const>(&nui::operator+), py::is_operator())
+        .def("__add__", static_cast<nui(nui::*)(int) const>(&nui::operator+), py::is_operator())
+        .def("__add__", static_cast<nui(nui::*)(double) const>(&nui::operator+), py::is_operator())
+        //.def("__add__", static_cast<ni(ni::*)(const nf&) const>(&ni::operator+), py::is_operator())
+        .def("__sub__", &nui::operator-, py::is_operator())
+        .def("__mul__", &nui::operator*, py::is_operator())
+        .def("__str__", &nui::print)
+        .def("__repr__", &nui::print);
+
+    py::class_<nf>(m, "nf")
+        .def(py::init<>())
+        .def(py::init<float>())
+        //.def(py::init<ni>())
+        .def(py::init<const nf&>())
+        .def("toFloat", &nf::toFloat);
+    py::class_<bint>(m, "bint")
+        .def(py::init<std::string>())
+        .def("__str__", [](const bint& bigint) {
+        std::stringstream ss;
+        ss << bigint; // Используем оператор << для вывода в stringstream
+        return ss.str(); // Возвращаем строковое представление
+            })
+        .def("__add__", &bint::operator+, py::return_value_policy::copy)
+                .def("__mul__", &bint::operator*, py::return_value_policy::copy);
 
     // Add functions to submodule
     //submodule.def("add", &add, "Addition function");

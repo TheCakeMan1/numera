@@ -1,13 +1,14 @@
 from setuptools import setup, Extension
 
-module = Extension('ftmodule',
-                   sources=['main.c', 'harmonic_c.c'])
+module_numera = Extension('numera', sources=['main.c'])
+module_harmonic = Extension('numera.harmonic', sources=['harmonic_c_main.c', 'harmonic_c.c', 'struct.c'])
 
-setup(name='ftmodule',
-      version='1.0',
-      description='Discrete Fourier Transform Module',
-      ext_modules=[module])
-
+setup(
+    name='numera',
+    version='1.0',
+    description='Discrete Fourier Transform Module',
+    ext_modules=[module_numera, module_harmonic]
+)
 
 
 '''import pybind11

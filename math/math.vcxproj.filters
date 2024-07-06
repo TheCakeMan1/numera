@@ -28,6 +28,12 @@
     <Filter Include="Исходные файлы\include_c">
       <UniqueIdentifier>{12022c17-9804-428f-8daa-9c846a36ef9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\include_py">
+      <UniqueIdentifier>{f7652b25-5a2b-42a8-8959-9dc994d2454f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\harmonic">
+      <UniqueIdentifier>{0a10d4e0-ddf3-415d-92e1-864dccc373f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="math.cpp">
@@ -72,13 +78,19 @@
     <ClCompile Include="nui.cpp">
       <Filter>Исходные файлы\object</Filter>
     </ClCompile>
-    <ClCompile Include="harmonic_c.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="vector_c.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="struct.c">
+      <Filter>Исходные файлы\object</Filter>
+    </ClCompile>
+    <ClCompile Include="harmonic_c.c">
+      <Filter>Исходные файлы\harmonic</Filter>
+    </ClCompile>
+    <ClCompile Include="harmonic_c_main.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,6 +135,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="harmonic_c.h">
+      <Filter>Исходные файлы\include_c</Filter>
+    </ClInclude>
+    <ClInclude Include="harmonic_py.h">
+      <Filter>Исходные файлы\include_py</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
       <Filter>Исходные файлы\include_c</Filter>
     </ClInclude>
   </ItemGroup>

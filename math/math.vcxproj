@@ -144,6 +144,7 @@
     <ClCompile Include="func.cpp" />
     <ClCompile Include="harmonic_c.c" />
     <ClCompile Include="harmonic.cpp" />
+    <ClCompile Include="harmonic_c_main.c" />
     <ClCompile Include="interpol.cpp" />
     <ClCompile Include="main.c" />
     <ClCompile Include="math.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="nui.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="per.cpp" />
+    <ClCompile Include="struct.c" />
     <ClCompile Include="val.cpp" />
     <ClCompile Include="val.h" />
     <ClCompile Include="vector.cpp" />
@@ -168,12 +170,14 @@
     <ClInclude Include="filter.h" />
     <ClInclude Include="func.h" />
     <ClInclude Include="harmonic_c.h" />
+    <ClInclude Include="harmonic_py.h" />
     <ClInclude Include="interpol.h" />
     <ClInclude Include="nf.h" />
     <ClInclude Include="ni.h" />
     <ClInclude Include="nui.h" />
     <ClInclude Include="parser.h" />
     <ClInclude Include="per.h" />
+    <ClInclude Include="struct.h" />
     <ClInclude Include="vector.h" />
     <ClInclude Include="vector_c.h" />
   </ItemGroup>

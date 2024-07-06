@@ -1,47 +1,23 @@
-#include "harmonic_c.h"
+#include <Python.h>
 
-static PyObject* sum_list(PyObject* self, PyObject* args)
-{
-    Py_ssize_t i, n;
-    long total = 0, value;
-    PyObject* item;
-    PyObject* list;
-
-    if (!PyArg_ParseTuple(args, "O", &list))
-        return NULL;
-
-    n = PyList_Size(list);
-    if (n < 0)
-        return -1; /* Not a list */
-    for (i = 0; i < n; i++) {
-        item = PyList_GetItem(list, i); /* Can't fail */
-        if (!PyLong_Check(item)) continue; /* Skip non-integers */
-        value = PyLong_AsLong(item);
-        if (value == -1 && PyErr_Occurred())
-            /* Integer too big to fit in a C long, bail out */
-            return -1;
-        total += value;
-    }
-    return Py_BuildValue("i", total);
+// Пример функции для основного модуля numera
+static PyObject* numera_hello(PyObject* self, PyObject* args) {
+    return Py_BuildValue("s", "Hello from numera");
 }
 
-static PyMethodDef FtMethods[] = {
-    {"ft", ft, METH_VARARGS, "Return the input list"},
-    {"sum_list", sum_list, METH_VARARGS, "Sum the elements of a list"},
-    {"fftn", fftn, METH_VARARGS, "Sum the elements of a list"},
-    {"py_fft", py_fft, METH_VARARGS, "Sum the elements of a list"},
+static PyMethodDef NumeraMethods[] = {
+    {"hello", numera_hello, METH_VARARGS, "Return a greeting."},
     {NULL, NULL, 0, NULL}
 };
 
-// Определение модуля
-static struct PyModuleDef moduledef = {
+static struct PyModuleDef numera_module = {
     PyModuleDef_HEAD_INIT,
-    "ftmodule",
+    "numera",
     NULL,
     -1,
-    FtMethods
+    NumeraMethods
 };
 
-PyMODINIT_FUNC PyInit_ftmodule(void) {
-    return PyModule_Create(&moduledef);
+PyMODINIT_FUNC PyInit_numera(void) {
+    return PyModule_Create(&numera_module);
 }

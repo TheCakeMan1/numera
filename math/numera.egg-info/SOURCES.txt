@@ -1,7 +1,11 @@
 harmonic.cpp
+harmonic_c.c
+harmonic_c_main.c
+main.c
 math.cpp
 parser.cpp
 setup.py
+struct.c
 val.cpp
 vector.cpp
 vector_c.c

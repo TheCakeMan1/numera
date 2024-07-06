@@ -4,6 +4,7 @@ parser.cpp
 setup.py
 val.cpp
 vector.cpp
+vector_c.c
 numera.egg-info/PKG-INFO
 numera.egg-info/SOURCES.txt
 numera.egg-info/dependency_links.txt

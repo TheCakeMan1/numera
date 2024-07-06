@@ -1,0 +1,7 @@
+harmonic_c.c
+main.c
+setup.py
+ftmodule.egg-info/PKG-INFO
+ftmodule.egg-info/SOURCES.txt
+ftmodule.egg-info/dependency_links.txt
+ftmodule.egg-info/top_level.txt

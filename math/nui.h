@@ -7,7 +7,7 @@
 #include <pybind11/stl.h>
 #include <pybind11/complex.h>
 
-class bint {
+/*class bint {
 private:
     std::vector<__m256i> digits;
 
@@ -126,7 +126,7 @@ public:
         result.digits = result_digits;
         return result;
     }
-};
+};*/
 
 class nui {
 protected:

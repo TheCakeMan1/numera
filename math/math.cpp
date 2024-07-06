@@ -10,6 +10,9 @@
 #include "ni.h"
 #include "nf.h"
 #include "nui.h"
+extern "C" {
+#include "vector_c.h"
+}
 
 namespace py = pybind11;
 
@@ -23,6 +26,9 @@ namespace py = pybind11;
     return py::none();
 }*/
 
+int add(int a, int b) {
+    return a + b;
+}
 
 PYBIND11_MODULE(numera, m) {
     m.doc() = "";
@@ -31,6 +37,7 @@ PYBIND11_MODULE(numera, m) {
 
     // Define submodules
     py::module submodule = m.def_submodule("harmonic", "");
+    submodule.def("add", &add, "");
     submodule.def("fft", &fft, pybind11::arg("y"), "");
     submodule.def("ift", &ift, pybind11::arg("Y"), "");
     submodule.def("hart", &hart, pybind11::arg("y"), "");
@@ -121,15 +128,19 @@ Examples
         //.def(py::init<ni>())
         .def(py::init<const nf&>())
         .def("toFloat", &nf::toFloat);
-    py::class_<bint>(m, "bint")
-        .def(py::init<std::string>())
-        .def("__str__", [](const bint& bigint) {
-        std::stringstream ss;
-        ss << bigint; // Используем оператор << для вывода в stringstream
-        return ss.str(); // Возвращаем строковое представление
-            })
-        .def("__add__", &bint::operator+, py::return_value_policy::copy)
-                .def("__mul__", &bint::operator*, py::return_value_policy::copy);
+
+    py::class_<bint>(m, "Bint")
+        .def(py::init<>())
+        .def_readwrite("array", &bint::array)
+        .def_readwrite("size", &bint::size)
+        .def_readwrite("size_last", &bint::size_last)
+        .def_readwrite("capacity", &bint::capacity)
+        .def_readwrite("negative", &bint::negative);
+
+    m.def("initVector", &initVector, "Initialize bint from string");
+    m.def("print_bint", &print_bint, "Print bint object");
+    m.def("add_bint", &add_bint, "Add two bint objects");
+        
 
     // Add functions to submodule
     //submodule.def("add", &add, "Addition function");

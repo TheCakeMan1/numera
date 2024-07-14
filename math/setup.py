@@ -1,13 +1,13 @@
 from setuptools import setup, Extension
 
-module_numera = Extension('numera', sources=['main.c'])
-module_harmonic = Extension('numera.harmonic', sources=['harmonic_c_main.c', 'harmonic_c.c', 'struct.c'])
+module_numera = Extension('numera', sources=['main.c', 'harmonic_c.c', 'struct.c'])
+#module_harmonic = Extension('numera.harmonic', sources=['harmonic_c_main.c', 'harmonic_c.c', 'struct.c'])
 
 setup(
     name='numera',
     version='1.0',
     description='Discrete Fourier Transform Module',
-    ext_modules=[module_numera, module_harmonic]
+    ext_modules=[module_numera]
 )
 
 

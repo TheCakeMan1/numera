@@ -3,7 +3,7 @@
 
 #include <Python.h>
 #include <math.h>
-#include "struct.h"
+#include "../structure/struct.h"
 #include <immintrin.h>
 
 PyObject* ft(PyObject* self, PyObject* args);

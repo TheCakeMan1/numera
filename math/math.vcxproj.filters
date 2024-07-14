@@ -13,12 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Исходные файлы\matan">
-      <UniqueIdentifier>{30fe0dba-246d-4e0e-8868-027007fab3dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\object">
-      <UniqueIdentifier>{0d4560f0-38ff-491d-8e19-0b6f68cb6650}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\signal">
       <UniqueIdentifier>{f3f72f5c-9123-4d3a-8d17-13d63ed0cacb}</UniqueIdentifier>
     </Filter>
@@ -28,70 +22,115 @@
     <Filter Include="Исходные файлы\include_c">
       <UniqueIdentifier>{12022c17-9804-428f-8daa-9c846a36ef9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\include_py">
-      <UniqueIdentifier>{f7652b25-5a2b-42a8-8959-9dc994d2454f}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\хлам">
+      <UniqueIdentifier>{21081d0c-06f8-4f72-99d6-bc7397549264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\harmonic_c">
+      <UniqueIdentifier>{0a10d4e0-ddf3-415d-92e1-864dccc373f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\harmonic_c\include">
+      <UniqueIdentifier>{2881ef2c-7c5e-4d49-a8d2-9db1594852c5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Исходные файлы\harmonic">
-      <UniqueIdentifier>{0a10d4e0-ddf3-415d-92e1-864dccc373f1}</UniqueIdentifier>
+      <UniqueIdentifier>{93ba2095-0696-4e62-902c-bd357635ed8a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="math.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="interpol.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="parser.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="harmonic.cpp">
-      <Filter>Исходные файлы\matan</Filter>
-    </ClCompile>
-    <ClCompile Include="val.h">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="vector.cpp">
-      <Filter>Исходные файлы\object</Filter>
-    </ClCompile>
-    <ClCompile Include="val.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="func.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="avx_suppor.cpp">
-      <Filter>Исходные файлы\object</Filter>
-    </ClCompile>
     <ClCompile Include="filter.cpp">
       <Filter>Исходные файлы\signal</Filter>
-    </ClCompile>
-    <ClCompile Include="per.cpp">
-      <Filter>Исходные файлы\object</Filter>
-    </ClCompile>
-    <ClCompile Include="ni.cpp">
-      <Filter>Исходные файлы\object</Filter>
-    </ClCompile>
-    <ClCompile Include="nf.cpp">
-      <Filter>Исходные файлы\object</Filter>
-    </ClCompile>
-    <ClCompile Include="nui.cpp">
-      <Filter>Исходные файлы\object</Filter>
     </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="vector_c.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="struct.c">
-      <Filter>Исходные файлы\object</Filter>
-    </ClCompile>
     <ClCompile Include="harmonic_c.c">
+      <Filter>Исходные файлы\harmonic_c</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="avx_suppor.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="nf.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="ni.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="nui.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="per.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\avx_suppor.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\filter.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="func.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\func.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\harmonic.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="interpol.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\interpol.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\vector_c.c">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\nf.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\ni.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\nui.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\parser.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\per.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\signal.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="val.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\val.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="val.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="хлам\vector.cpp">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="vector_c.c">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClCompile>
+    <ClCompile Include="harmonic\harmonic_c.c">
       <Filter>Исходные файлы\harmonic</Filter>
     </ClCompile>
-    <ClCompile Include="harmonic_c_main.c">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="harmonic\harmonic_c_main.c">
+      <Filter>Исходные файлы\harmonic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,47 +140,95 @@
     <None Include="setup.py" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="interpol.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="parser.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="vector.h">
-      <Filter>Исходные файлы\object</Filter>
-    </ClInclude>
-    <ClInclude Include="func.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="avx_support.h">
-      <Filter>Исходные файлы\object</Filter>
-    </ClInclude>
     <ClInclude Include="filter.h">
       <Filter>Исходные файлы\signal</Filter>
     </ClInclude>
-    <ClInclude Include="per.h">
-      <Filter>Исходные файлы\object</Filter>
+    <ClInclude Include="struct.h">
+      <Filter>Исходные файлы\include_c</Filter>
     </ClInclude>
-    <ClInclude Include="ni.h">
-      <Filter>Исходные файлы\object</Filter>
+    <ClInclude Include="vector.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="per.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="avx_support.h">
+      <Filter>Исходные файлы\хлам</Filter>
     </ClInclude>
     <ClInclude Include="nf.h">
-      <Filter>Исходные файлы\object</Filter>
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="ni.h">
+      <Filter>Исходные файлы\хлам</Filter>
     </ClInclude>
     <ClInclude Include="nui.h">
-      <Filter>Исходные файлы\object</Filter>
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="func.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\avx_support.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\filter.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\func.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="interpol.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\interpol.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\nf.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\ni.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\nui.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\parser.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\per.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\val.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\vector.h">
+      <Filter>Исходные файлы\хлам</Filter>
     </ClInclude>
     <ClInclude Include="vector_c.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="хлам\vector_c.h">
+      <Filter>Исходные файлы\хлам</Filter>
+    </ClInclude>
+    <ClInclude Include="matan.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="harmonic_c.h">
-      <Filter>Исходные файлы\include_c</Filter>
+      <Filter>Исходные файлы\harmonic_c\include</Filter>
     </ClInclude>
-    <ClInclude Include="harmonic_py.h">
-      <Filter>Исходные файлы\include_py</Filter>
+    <ClInclude Include="harmonic_c_main.h">
+      <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="struct.h">
-      <Filter>Исходные файлы\include_c</Filter>
+    <ClInclude Include="harmonic\harmonic_c.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="harmonic\harmonic_c_main.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="harmonic\harmonic_py.h">
+      <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

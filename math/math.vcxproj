@@ -142,9 +142,9 @@
     <ClCompile Include="avx_suppor.cpp" />
     <ClCompile Include="filter.cpp" />
     <ClCompile Include="func.cpp" />
+    <ClCompile Include="harmonic\harmonic_c.c" />
+    <ClCompile Include="harmonic\harmonic_c_main.c" />
     <ClCompile Include="harmonic_c.c" />
-    <ClCompile Include="harmonic.cpp" />
-    <ClCompile Include="harmonic_c_main.c" />
     <ClCompile Include="interpol.cpp" />
     <ClCompile Include="main.c" />
     <ClCompile Include="math.cpp" />
@@ -153,11 +153,24 @@
     <ClCompile Include="nui.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="per.cpp" />
-    <ClCompile Include="struct.c" />
     <ClCompile Include="val.cpp" />
     <ClCompile Include="val.h" />
     <ClCompile Include="vector.cpp" />
     <ClCompile Include="vector_c.c" />
+    <ClCompile Include="хлам\avx_suppor.cpp" />
+    <ClCompile Include="хлам\filter.cpp" />
+    <ClCompile Include="хлам\func.cpp" />
+    <ClCompile Include="хлам\harmonic.cpp" />
+    <ClCompile Include="хлам\interpol.cpp" />
+    <ClCompile Include="хлам\nf.cpp" />
+    <ClCompile Include="хлам\ni.cpp" />
+    <ClCompile Include="хлам\nui.cpp" />
+    <ClCompile Include="хлам\parser.cpp" />
+    <ClCompile Include="хлам\per.cpp" />
+    <ClCompile Include="хлам\signal.cpp" />
+    <ClCompile Include="хлам\val.cpp" />
+    <ClCompile Include="хлам\vector.cpp" />
+    <ClCompile Include="хлам\vector_c.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
@@ -169,8 +182,12 @@
     <ClInclude Include="avx_support.h" />
     <ClInclude Include="filter.h" />
     <ClInclude Include="func.h" />
+    <ClInclude Include="harmonic\harmonic_c.h" />
+    <ClInclude Include="harmonic\harmonic_c_main.h" />
+    <ClInclude Include="harmonic\harmonic_py.h" />
+    <ClInclude Include="harmonic_c_main.h" />
+    <ClInclude Include="matan.h" />
     <ClInclude Include="harmonic_c.h" />
-    <ClInclude Include="harmonic_py.h" />
     <ClInclude Include="interpol.h" />
     <ClInclude Include="nf.h" />
     <ClInclude Include="ni.h" />
@@ -180,6 +197,18 @@
     <ClInclude Include="struct.h" />
     <ClInclude Include="vector.h" />
     <ClInclude Include="vector_c.h" />
+    <ClInclude Include="хлам\avx_support.h" />
+    <ClInclude Include="хлам\filter.h" />
+    <ClInclude Include="хлам\func.h" />
+    <ClInclude Include="хлам\interpol.h" />
+    <ClInclude Include="хлам\nf.h" />
+    <ClInclude Include="хлам\ni.h" />
+    <ClInclude Include="хлам\nui.h" />
+    <ClInclude Include="хлам\parser.h" />
+    <ClInclude Include="хлам\per.h" />
+    <ClInclude Include="хлам\val.h" />
+    <ClInclude Include="хлам\vector.h" />
+    <ClInclude Include="хлам\vector_c.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
